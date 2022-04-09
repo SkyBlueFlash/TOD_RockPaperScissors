@@ -4,11 +4,34 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="logic.js"></script>
+    <script src="logic.js" defer></script>
+    <link href="style.css" rel="stylesheet">
     <title>Document</title>
 </head>
 <body onload="game()">
-        <p id='Cscore'>Computer Score: </p>
-        <p id='Pscore'>Player Score: </p>
+        <div class='nameArea'>
+            <p>Player</p>
+            <p>Pc</p>
+        </div>
+        <div class='moveArea'>
+            <span class='btnArea'>
+                <button id="rBtn" class='rBtn'>Rock</button>
+                <button id="pBtn" class='pBtn'>Paper</button>
+                <button id="sBtn" class='sBtn'>Scissors</button>
+                <span class='scoreArea'>
+                    <p id='Cscore' class='Cscore'>Computer Score: </p>
+                    <p id='Pscore' class='Pscore'>Player Score: </p>
+                </span>
+            </span>
+            <span class='imgArea'>
+                <span class='playerSpan'>
+                    <img src='data;' class='player'>
+                </span>
+                <span class='aiSpan'>
+                    <img src='data;' class='ai'>
+                </span>
+            </span>
+        </div>
+        
 </body>
 </html>
