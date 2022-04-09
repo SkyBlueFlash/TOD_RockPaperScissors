@@ -4,13 +4,31 @@ let results = [0,0];
 let Cplay = () => choices[Math.floor(Math.random()*3)];
 
 function Pplay() {
-    let pChoice = prompt("What do you want to play? (rock, paper, scissors)");
-    if (pChoice.toLowerCase() == choices[0] | pChoice.toLowerCase() == choices[1] | pChoice.toLowerCase() == choices[2]) {
-        return pChoice;
-    } else {
-        alert (`${pChoice} is not an option! Please choose rock, paper, or scissors.`);
-        Pplay();
-    }
+    let choice;
+    let rBtn = document.getElementById('rBtn');
+    let pBtn = document.getElementById('pBtn');
+    let sBtn = document.getElementById('sBtn');
+    let pImg = document.getElementById('pImg');
+    let cImg = document.getElementById('cImg');
+
+    rBtn.addEventListener('click', () => {
+            choice =  "rock";
+            pImg.src = "images/rockHand.svg"
+            game(choice);
+        }
+    );
+    pBtn.addEventListener('click', () => {
+            choice =  "paper";
+            pImg.src = "images/paperHand.svg"
+            game(choice);
+        }
+    );
+    sBtn.addEventListener('click', () => {
+            choice =  "scissors"
+            pImg.src = "images/scissorsHand.svg"
+            game(choice);
+        } 
+    );
 }
 
 
@@ -67,14 +85,12 @@ function calcRes(pChoice, cChoice) {
         }
     }
     else if (pChoice == 'scissors' && cChoice == 'scissors') {
-        alert('Draw!');
     }
     else if (pChoice == 'paper' && cChoice == 'paper') {
-        alert('Draw!');
     }
     else if (pChoice == 'rock' && cChoice == 'rock') {
-        alert('Draw!');
     }    
+    return results;
 }
 
 function showRes(results) {
@@ -84,13 +100,9 @@ function showRes(results) {
     cS.innerText = `Computer Score: ${results[0]}`;
 }
 
-function game() {
-    for (let i = 0; i < 5; ++i) {
-        let cChoice = Cplay();
-        let pChoice = Pplay();
-        calcRes(cChoice,pChoice);
-        showRes(results);
-    }
-
+function game(pchoice) {
+    let cchoice = Cplay();
+    results = calcRes(pchoice, cchoice);
+    showRes(results);
 }
 
